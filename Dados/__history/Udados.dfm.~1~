@@ -1,0 +1,9 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 271
+  Width = 487
+  object ADOEasyMaster: TADOConnection
+    Left = 224
+    Top = 120
+  end
+end
