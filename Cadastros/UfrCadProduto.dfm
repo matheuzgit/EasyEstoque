@@ -98,7 +98,6 @@ object FrmCadProduto: TFrmCadProduto
     Color = clSilver
     ParentBackground = False
     TabOrder = 2
-    ExplicitWidth = 623
     object SpBtnSalvar: TSpeedButton
       Left = 39
       Top = 9
@@ -427,6 +426,7 @@ object FrmCadProduto: TFrmCadProduto
         44FFA05E44FFA05E44FFA05E44FFA05E44FFA05E44FFA05E44FFA05E44FFA05E
         44FFA05E44FF9F5D43FF804D330AFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
         FF00FFFFFF00}
+      OnClick = SpBtnPesquisarClick
     end
     object SpBtnCancelar: TSpeedButton
       Left = 159

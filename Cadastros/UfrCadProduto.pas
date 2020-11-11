@@ -59,6 +59,7 @@ type
     procedure SpBtnCancelarClick(Sender: TObject);
     procedure SpBtnSalvarClick(Sender: TObject);
     procedure SpBtnAdicionarClick(Sender: TObject);
+    procedure SpBtnPesquisarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -72,7 +73,7 @@ implementation
 
 {$R *.dfm}
 
-uses Udados;
+uses Udados, UfrConsultaProduto;
 
 procedure TFrmCadProduto.SpBtnAdicionarClick(Sender: TObject);
 begin
@@ -107,6 +108,14 @@ begin
     QryFornecedor.close;
 end;
 
+procedure TFrmCadProduto.SpBtnPesquisarClick(Sender: TObject);
+var
+  consProduto : TFrmConsProduto;
+begin
+  consProduto := TFrmConsProduto.Create(Self);
+  consProduto.ShowModal;
+end;
+
 procedure TFrmCadProduto.SpBtnSalvarClick(Sender: TObject);
 var
   dimencoes : string;
@@ -123,8 +132,6 @@ begin
   end;
 
   dimencoes := EdtAltura.Text +'x'+ EdtLargura.Text;
-
-
 
   if EdtNomePro.Text = '' then
     raise Exception.Create('Campo Nome do Produto Obrigatótio!!!')

@@ -11,6 +11,10 @@ object FrmConsProduto: TFrmConsProduto
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
+  WindowState = wsMaximized
+  OnClose = FormClose
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object DBGrid1: TDBGrid
@@ -19,7 +23,7 @@ object FrmConsProduto: TFrmConsProduto
     Width = 769
     Height = 322
     Align = alClient
-    DataSource = DsProduto
+    DataSource = DsCons
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -29,15 +33,28 @@ object FrmConsProduto: TFrmConsProduto
     Columns = <
       item
         Expanded = False
+        FieldName = 'RAZAOSOCIAL'
+        Title.Caption = 'Empresa'
+        Width = 200
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'procodId'
+        Title.Caption = 'Identifica'#231#227'o do Produto'
+        Visible = True
+      end
+      item
+        Expanded = False
         FieldName = 'prodesc'
-        Title.Caption = 'Nome do Produto'
+        Title.Caption = 'Descri'#231#227'o'
         Width = 200
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'UNIDADE'
-        Title.Caption = 'Unidades'
+        Title.Caption = 'Unidade'
         Visible = True
       end
       item
@@ -54,14 +71,8 @@ object FrmConsProduto: TFrmConsProduto
       end
       item
         Expanded = False
-        FieldName = 'CODBARRA'
-        Title.Caption = 'Cod-Barra'
-        Visible = True
-      end
-      item
-        Expanded = False
         FieldName = 'fornecedor'
-        Title.Caption = 'Fornecedor'
+        Title.Caption = 'Fornceodor'
         Width = 200
         Visible = True
       end
@@ -75,6 +86,7 @@ object FrmConsProduto: TFrmConsProduto
         Expanded = False
         FieldName = 'MARCA'
         Title.Caption = 'Marca'
+        Width = 200
         Visible = True
       end>
   end
@@ -88,7 +100,7 @@ object FrmConsProduto: TFrmConsProduto
     ParentBackground = False
     TabOrder = 1
     object SpeedButton1: TSpeedButton
-      Left = 352
+      Left = 342
       Top = 27
       Width = 25
       Height = 22
@@ -168,6 +180,7 @@ object FrmConsProduto: TFrmConsProduto
         44FFA05E44FFA05E44FFA05E44FFA05E44FFA05E44FFA05E44FFA05E44FFA05E
         44FFA05E44FF9F5D43FF804D330AFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
         FF00FFFFFF00}
+      OnClick = SpeedButton1Click
     end
     object Label1: TLabel
       Left = 16
@@ -250,8 +263,8 @@ object FrmConsProduto: TFrmConsProduto
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
-      'select * from fornecedor , produto')
-    Left = 248
+      'select * from  Fornecedor')
+    Left = 256
     Top = 136
     object QryFornecedorCNPJ: TStringField
       FieldName = 'CNPJ'
@@ -303,47 +316,111 @@ object FrmConsProduto: TFrmConsProduto
       FieldName = 'MOVEL'
       Size = 14
     end
-    object QryFornecedorprocodId: TAutoIncField
-      FieldName = 'procodId'
-      ReadOnly = True
-    end
-    object QryFornecedorprodesc: TStringField
-      FieldName = 'prodesc'
-      Size = 200
-    end
-    object QryFornecedorUNIDADE: TIntegerField
-      FieldName = 'UNIDADE'
-    end
-    object QryFornecedorVALOR: TFloatField
-      FieldName = 'VALOR'
-    end
-    object QryFornecedorPESO: TFloatField
-      FieldName = 'PESO'
-    end
-    object QryFornecedorCODBARRA: TIntegerField
-      FieldName = 'CODBARRA'
-    end
-    object QryFornecedorfornecedor: TStringField
-      FieldName = 'fornecedor'
-      Size = 1000
-    end
-    object QryFornecedorTAMANHO: TStringField
-      FieldName = 'TAMANHO'
-      Size = 10
-    end
-    object QryFornecedorMARCA: TStringField
-      FieldName = 'MARCA'
-      Size = 100
-    end
   end
   object DsProduto: TDataSource
     DataSet = QryProduto
-    Left = 376
-    Top = 200
+    Left = 248
+    Top = 232
   end
   object DsProdutoFornecedor: TDataSource
     DataSet = QryFornecedor
     Left = 160
+    Top = 224
+  end
+  object QryCons: TADOQuery
+    Connection = DMDados.ADOEasyMaster
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      '')
+    Left = 472
+    Top = 128
+    object QryConsCNPJ: TStringField
+      FieldName = 'CNPJ'
+      Size = 15
+    end
+    object QryConsNOMEFANTASIA: TStringField
+      FieldName = 'NOMEFANTASIA'
+      Size = 200
+    end
+    object QryConsRAZAOSOCIAL: TStringField
+      FieldName = 'RAZAOSOCIAL'
+      Size = 200
+    end
+    object QryConsSEGMENTO: TStringField
+      FieldName = 'SEGMENTO'
+      Size = 100
+    end
+    object QryConsRUA: TStringField
+      FieldName = 'RUA'
+      Size = 200
+    end
+    object QryConsNUMERO: TIntegerField
+      FieldName = 'NUMERO'
+    end
+    object QryConsUF: TStringField
+      FieldName = 'UF'
+      Size = 2
+    end
+    object QryConsCOMPLEMENTO: TStringField
+      FieldName = 'COMPLEMENTO'
+      Size = 200
+    end
+    object QryConsCIDADE: TStringField
+      FieldName = 'CIDADE'
+      Size = 50
+    end
+    object QryConsCEP: TIntegerField
+      FieldName = 'CEP'
+    end
+    object QryConsEMAIL: TStringField
+      FieldName = 'EMAIL'
+      Size = 100
+    end
+    object QryConsFIXO: TStringField
+      FieldName = 'FIXO'
+      Size = 13
+    end
+    object QryConsMOVEL: TStringField
+      FieldName = 'MOVEL'
+      Size = 14
+    end
+    object QryConsprocodId: TAutoIncField
+      FieldName = 'procodId'
+      ReadOnly = True
+    end
+    object QryConsprodesc: TStringField
+      FieldName = 'prodesc'
+      Size = 200
+    end
+    object QryConsUNIDADE: TIntegerField
+      FieldName = 'UNIDADE'
+    end
+    object QryConsVALOR: TFloatField
+      FieldName = 'VALOR'
+    end
+    object QryConsPESO: TFloatField
+      FieldName = 'PESO'
+    end
+    object QryConsCODBARRA: TIntegerField
+      FieldName = 'CODBARRA'
+    end
+    object QryConsfornecedor: TStringField
+      FieldName = 'fornecedor'
+      Size = 1000
+    end
+    object QryConsTAMANHO: TStringField
+      FieldName = 'TAMANHO'
+      Size = 10
+    end
+    object QryConsMARCA: TStringField
+      FieldName = 'MARCA'
+      Size = 100
+    end
+  end
+  object DsCons: TDataSource
+    DataSet = QryCons
+    Left = 464
     Top = 224
   end
 end

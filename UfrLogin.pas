@@ -81,7 +81,6 @@ begin
   QryLogin.Open;
   QryLogin.First;
 
-
   while (QryLoginLogin.AsString <> EdtLogin.Text) or (QryLoginSenha.AsString <> EdtSenha.Text) do
   begin
    if (QryLogin.Eof)  then

@@ -29,6 +29,30 @@ type
     QryProdutoMARCA: TStringField;
     DsProduto: TDataSource;
     DsProdutoFornecedor: TDataSource;
+    QryCons: TADOQuery;
+    DsCons: TDataSource;
+    QryConsCNPJ: TStringField;
+    QryConsNOMEFANTASIA: TStringField;
+    QryConsRAZAOSOCIAL: TStringField;
+    QryConsSEGMENTO: TStringField;
+    QryConsRUA: TStringField;
+    QryConsNUMERO: TIntegerField;
+    QryConsUF: TStringField;
+    QryConsCOMPLEMENTO: TStringField;
+    QryConsCIDADE: TStringField;
+    QryConsCEP: TIntegerField;
+    QryConsEMAIL: TStringField;
+    QryConsFIXO: TStringField;
+    QryConsMOVEL: TStringField;
+    QryConsprocodId: TAutoIncField;
+    QryConsprodesc: TStringField;
+    QryConsUNIDADE: TIntegerField;
+    QryConsVALOR: TFloatField;
+    QryConsPESO: TFloatField;
+    QryConsCODBARRA: TIntegerField;
+    QryConsfornecedor: TStringField;
+    QryConsTAMANHO: TStringField;
+    QryConsMARCA: TStringField;
     QryFornecedorCNPJ: TStringField;
     QryFornecedorNOMEFANTASIA: TStringField;
     QryFornecedorRAZAOSOCIAL: TStringField;
@@ -42,15 +66,9 @@ type
     QryFornecedorEMAIL: TStringField;
     QryFornecedorFIXO: TStringField;
     QryFornecedorMOVEL: TStringField;
-    QryFornecedorprocodId: TAutoIncField;
-    QryFornecedorprodesc: TStringField;
-    QryFornecedorUNIDADE: TIntegerField;
-    QryFornecedorVALOR: TFloatField;
-    QryFornecedorPESO: TFloatField;
-    QryFornecedorCODBARRA: TIntegerField;
-    QryFornecedorfornecedor: TStringField;
-    QryFornecedorTAMANHO: TStringField;
-    QryFornecedorMARCA: TStringField;
+    procedure FormCreate(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -65,5 +83,44 @@ implementation
 {$R *.dfm}
 
 uses Udados;
+
+procedure TFrmConsProduto.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  QryProduto.close;
+  QryFornecedor.close;
+  QryCons.close;
+end;
+
+procedure TFrmConsProduto.FormCreate(Sender: TObject);
+begin
+  QryProduto.Open;
+  QryFornecedor.Open;
+end;
+
+procedure TFrmConsProduto.SpeedButton1Click(Sender: TObject);
+begin
+  QryCons.Close;
+  QryCons.SQL.Clear;
+  QryCons.SQL.Add('select * from produto p, fornecedor f');
+
+  if (DBLookupComboBox1.Text <> '') and (DBLookupComboBox2.Text <> '') then
+    QryCons.SQL.Add('where')
+  else
+    QryCons.Open;
+    Exit;
+
+  if (DBLookupComboBox1.Text <> '') then
+    QryCons.SQL.Add('f.razaosocial = '''+ DBLookupComboBox1.Text +'''');
+
+  if (DBLookupComboBox2.Text <> '') and (DBLookupComboBox1.Text = '')then
+    raise Exception.Create('Informe o Fornecedor')
+  else
+    QryCons.SQL.Add('And');
+
+  if (DBLookupComboBox2.Text <> '') then
+    QryCons.SQL.Add('p.prodesc = '''+ DBLookupComboBox2.Text +'''');
+  QryCons.Open;
+
+end;
 
 end.
