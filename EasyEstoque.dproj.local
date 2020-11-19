@@ -2,8 +2,8 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2020/10/14 17:09:36.000.796,=C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/10/14 17:11:16.000.777,D:\Projetos\EsyPvd\UfrLogin.dfm=C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
     <Transaction>2020/10/14 17:11:16.000.777,D:\Projetos\EsyPvd\UfrLogin.pas=C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/10/14 17:11:16.000.777,D:\Projetos\EsyPvd\UfrLogin.dfm=C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
     <Transaction>2020/10/14 17:12:41.000.630,=C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2020/10/14 17:23:05.000.393,D:\Projetos\EsyPvd\UnFunc.pas=C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2020/10/14 17:28:11.000.513,D:\Projetos\EsyPvd\EsyEstoque.dproj=C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
@@ -16,18 +16,20 @@
     <Transaction>2020/10/14 18:36:57.000.876,D:\Projetos\EsyPvd\Unit1.dfm=D:\Projetos\EsyPvd\UfrCadLogin.dfm</Transaction>
     <Transaction>2020/10/15 10:17:02.000.358,=D:\Projetos\EsyPvd\UfrMenu.pas</Transaction>
     <Transaction>2020/10/15 10:31:28.000.033,=D:\Projetos\EsyPvd\Unit1.pas</Transaction>
-    <Transaction>2020/10/15 10:32:05.000.317,D:\Projetos\EsyPvd\Cadastros\UfrCadFornecedor.dfm=D:\Projetos\EsyPvd\Unit1.dfm</Transaction>
     <Transaction>2020/10/15 10:32:05.000.317,D:\Projetos\EsyPvd\Cadastros\UfrCadFornecedor.pas=D:\Projetos\EsyPvd\Unit1.pas</Transaction>
+    <Transaction>2020/10/15 10:32:05.000.317,D:\Projetos\EsyPvd\Cadastros\UfrCadFornecedor.dfm=D:\Projetos\EsyPvd\Unit1.dfm</Transaction>
     <Transaction>2020/10/15 11:43:47.000.586,=D:\Projetos\EsyPvd\Pkg.Json.DTO.pas</Transaction>
     <Transaction>2020/10/15 11:45:02.000.408,=D:\Projetos\EsyPvd\Unit1.pas</Transaction>
     <Transaction>2020/10/15 11:45:34.000.900,D:\Projetos\EsyPvd\Ucep.pas=D:\Projetos\EsyPvd\Unit1.pas</Transaction>
     <Transaction>2020/10/16 10:05:29.000.697,=D:\Projetos\EsyPvd\GetCnpj.pas</Transaction>
     <Transaction>2020/10/21 11:14:48.000.332,=D:\Projetos\EsyPvd\Unit1.pas</Transaction>
-    <Transaction>2020/10/21 11:15:10.000.129,D:\Projetos\EsyPvd\Cadastros\UfrCadProduto.pas=D:\Projetos\EsyPvd\Unit1.pas</Transaction>
     <Transaction>2020/10/21 11:15:10.000.129,D:\Projetos\EsyPvd\Cadastros\UfrCadProduto.dfm=D:\Projetos\EsyPvd\Unit1.dfm</Transaction>
+    <Transaction>2020/10/21 11:15:10.000.129,D:\Projetos\EsyPvd\Cadastros\UfrCadProduto.pas=D:\Projetos\EsyPvd\Unit1.pas</Transaction>
     <Transaction>2020/10/22 16:33:36.000.354,=D:\Projetos\EsyPvd\Unit1.pas</Transaction>
     <Transaction>2020/10/22 16:34:43.000.442,D:\Projetos\EsyPvd\Consultas\UfrConsultaProduto.pas=D:\Projetos\EsyPvd\Unit1.pas</Transaction>
     <Transaction>2020/10/22 16:34:43.000.442,D:\Projetos\EsyPvd\Consultas\UfrConsultaProduto.dfm=D:\Projetos\EsyPvd\Unit1.dfm</Transaction>
+    <Transaction>2020/11/16 10:18:40.000.594,=D:\Projetos\EasyEstoque\Unit1.pas</Transaction>
+    <Transaction>2020/11/16 10:18:57.000.458,D:\Projetos\EasyEstoque\Unit1.pas=D:\Projetos\EasyEstoque\UnFunc.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="Cadastros"/>
@@ -50,5 +52,6 @@
     <File Path="UfrCadLogin.dfm"/>
     <File Path="UfrMenu.pas"/>
     <File Path="UfrMenu.dfm"/>
+    <File Path="UnFunc.pas"/>
   </ProjectSortOrder>
 </BorlandProject>

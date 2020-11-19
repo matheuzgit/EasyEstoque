@@ -21,7 +21,6 @@ type
     BtnRedSenha: TButton;
     QryLogin: TADOQuery;
     QryLoginLogin: TStringField;
-    QryLoginContato: TStringField;
     QryLoginSenha: TStringField;
     procedure EdtLoginKeyPress(Sender: TObject; var Key: Char);
     procedure EdtSenhaKeyPress(Sender: TObject; var Key: Char);
@@ -41,7 +40,7 @@ implementation
 
 {$R *.dfm}
 
-uses  Udados, UfrCadLogin, UfrMenu;
+uses  Udados, UfrCadLogin, UfrMenu, UnFunc;
 
 procedure TFrmLogin.BtnCadLoginClick(Sender: TObject);
 var
@@ -50,7 +49,6 @@ begin
   CadLogin := TFrmCadLogin.Create(Self);
   CadLogin.Show;
 end;
-
 
 procedure TFrmLogin.BtnLogarClick(Sender: TObject);
 var

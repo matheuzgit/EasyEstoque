@@ -4,7 +4,7 @@ object FrmLogin: TFrmLogin
   Align = alClient
   Caption = 'Login'
   ClientHeight = 670
-  ClientWidth = 1563
+  ClientWidth = 1366
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,14 +19,14 @@ object FrmLogin: TFrmLogin
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1563
+    Width = 1366
     Height = 670
     Align = alClient
     TabOrder = 0
     object Image1: TImage
       Left = 305
       Top = 1
-      Width = 1257
+      Width = 1060
       Height = 668
       Align = alClient
       Picture.Data = {
@@ -7561,10 +7561,6 @@ object FrmLogin: TFrmLogin
     Top = 168
     object QryLoginLogin: TStringField
       FieldName = 'Login'
-      Size = 11
-    end
-    object QryLoginContato: TStringField
-      FieldName = 'Contato'
       Size = 11
     end
     object QryLoginSenha: TStringField

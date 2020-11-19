@@ -2,8 +2,8 @@ object FrmCadLogin: TFrmCadLogin
   Left = 0
   Top = 0
   Caption = 'Cadastro de Login'
-  ClientHeight = 182
-  ClientWidth = 359
+  ClientHeight = 173
+  ClientWidth = 311
   Color = clHighlight
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,38 +12,39 @@ object FrmCadLogin: TFrmCadLogin
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
-    Left = 48
-    Top = 21
+    Left = 171
+    Top = 16
     Width = 19
     Height = 13
     Caption = 'CPF'
   end
-  object Label2: TLabel
-    Left = 200
-    Top = 21
-    Width = 39
-    Height = 13
-    Caption = 'Contato'
-  end
   object Label3: TLabel
-    Left = 48
-    Top = 70
+    Left = 31
+    Top = 68
     Width = 30
     Height = 13
     Caption = 'Senha'
   end
   object Label4: TLabel
-    Left = 200
-    Top = 70
+    Left = 171
+    Top = 68
     Width = 80
     Height = 13
     Caption = 'Confirmar Senha'
   end
+  object Label2: TLabel
+    Left = 31
+    Top = 16
+    Width = 13
+    Height = 13
+    Caption = 'RE'
+  end
   object BtnCadastra: TButton
-    Left = 136
+    Left = 128
     Top = 128
     Width = 75
     Height = 25
@@ -52,41 +53,41 @@ object FrmCadLogin: TFrmCadLogin
     OnClick = BtnCadastraClick
   end
   object EdtCnfSenha: TEdit
-    Left = 200
-    Top = 89
+    Left = 171
+    Top = 87
     Width = 121
     Height = 21
     TabOrder = 1
     OnKeyPress = EdtCnfSenhaKeyPress
   end
-  object EdtContato: TEdit
-    Left = 200
-    Top = 40
+  object EdtRE: TEdit
+    Left = 31
+    Top = 35
     Width = 121
     Height = 21
     TabOrder = 2
-    OnKeyPress = EdtContatoKeyPress
+    OnKeyPress = EdtREKeyPress
   end
-  object EdtNome: TEdit
-    Left = 48
-    Top = 40
+  object EdtSenha: TEdit
+    Left = 31
+    Top = 87
     Width = 121
     Height = 21
     TabOrder = 3
-    OnKeyPress = EdtNomeKeyPress
+    OnKeyPress = EdtSenhaKeyPress
   end
-  object EdtSenha: TEdit
-    Left = 48
-    Top = 89
+  object EdtCPF: TEdit
+    Left = 171
+    Top = 35
     Width = 121
     Height = 21
     TabOrder = 4
-    OnKeyPress = EdtSenhaKeyPress
+    OnKeyPress = EdtCPFKeyPress
   end
   object ADOCmdLogin: TADOCommand
     CommandText = 
-      'insert  into login(Login, Senha, Contato)'#13#10'values(:Login, :Senha' +
-      ', :Contato)'
+      'insert  into login(Login, Senha, CPF)'#13#10'values(:Login, :Senha, :C' +
+      'PF)'
     Connection = DMDados.ADOEasyMaster
     Parameters = <
       item
@@ -99,14 +100,15 @@ object FrmCadLogin: TFrmCadLogin
       end
       item
         Name = 'Senha'
-        Attributes = [paSigned, paNullable]
-        DataType = ftInteger
-        Precision = 10
-        Size = 4
+        Attributes = [paNullable]
+        DataType = ftString
+        NumericScale = 255
+        Precision = 255
+        Size = 10
         Value = Null
       end
       item
-        Name = 'Contato'
+        Name = 'CPF'
         Attributes = [paNullable]
         DataType = ftString
         NumericScale = 255
@@ -114,7 +116,43 @@ object FrmCadLogin: TFrmCadLogin
         Size = 11
         Value = Null
       end>
-    Left = 64
-    Top = 128
+    Left = 248
+    Top = 120
+  end
+  object QryLogin: TADOQuery
+    Connection = DMDados.ADOEasyMaster
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT * FROM LOGIN')
+    Left = 72
+    Top = 112
+    object QryLoginLogin: TStringField
+      FieldName = 'Login'
+      Size = 11
+    end
+    object QryLoginSenha: TStringField
+      FieldName = 'Senha'
+      Size = 10
+    end
+    object QryLoginCPF: TStringField
+      FieldName = 'CPF'
+      Size = 11
+    end
+  end
+  object QryRe: TADOQuery
+    Connection = DMDados.ADOEasyMaster
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT MAX(login.Login) AS ultimoLogin'
+      'FROM login')
+    Left = 16
+    Top = 112
+    object QryReultimoLogin: TStringField
+      FieldName = 'ultimoLogin'
+      ReadOnly = True
+      Size = 11
+    end
   end
 end

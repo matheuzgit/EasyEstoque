@@ -11,7 +11,8 @@ uses
   Ucep in 'Ucep.pas',
   GetCnpj in 'GetCnpj.pas',
   UfrCadProduto in 'Cadastros\UfrCadProduto.pas' {FrmCadProduto},
-  UfrConsultaProduto in 'Consultas\UfrConsultaProduto.pas' {FrmConsProduto};
+  UfrConsultaProduto in 'Consultas\UfrConsultaProduto.pas' {FrmConsProduto},
+  UnFunc in 'UnFunc.pas';
 
 {$R *.res}
 
